@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+* {
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Righteous", cursive;
+  min-height: 400px;
+  background-image: url("https://i.postimg.cc/ZY7CSvT0/mario-background-wqhd-1440p-wallpaper.jpg");
+  background-color: #111;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-size: 28px;
+  width: 100vw;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  height: 100vh;
+}
+
+.borda {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.borda.x .celulas:not(.x):not(.circulo):hover::after,
+.borda.x .celulas:not(.x):not(.circulo):hover::before,
+.borda.circulo .celulas:not(.x):not(.circulo):hover::after,
+.borda.circulo .celulas:not(.x):not(.circulo):hover::before {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Estilização das céluas */
+.celulas {
+  width: 100px;
+  height: 100px;
+  border: 4px solid rgb(124, 19, 19);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  position: relative;
+}
+
+.celulas.x,
+.celulas.circulo {
+  cursor: not-allowed;
+}
+
+.celulas:nth-child(1),
+.celulas:nth-child(2),
+.celulas:nth-child(3) {
+  border-top: none;
+}
+
+.celulas:nth-child(1),
+.celulas:nth-child(4),
+.celulas:nth-child(7) {
+  border-left: none;
+}
+
+.celulas:nth-child(7),
+.celulas:nth-child(8),
+.celulas:nth-child(9) {
+  border-bottom: none;
+}
+
+.celulas:nth-child(3),
+.celulas:nth-child(6),
+.celulas:nth-child(9) {
+  border-right: none;
+}
+
+.alura-logo {
+  width: 60px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Estilização do X */
+.celulas.x::before,
+.celulas.x::after,
+.borda.x .celulas:not(.x):not(.circulo):hover::after,
+.borda.x .celulas:not(.x):not(.circulo):hover::before {
+  content: "";
+  width: calc(100px * 0.9);
+  height: calc(100px * 0.15);
+  background: black;
+  position: absolute;
+}
+
+.celulas.x::before,
+.borda.x .celulas:not(.x):not(.circulo):hover::before {
+  transform: rotate(45deg);
+}
+
+.celulas.x::after,
+.borda.x .celulas:not(.x):not(.circulo):hover::after {
+  transform: rotate(-45deg);
+}
+
+/* Estilização do Círculo */
+.celulas.circulo::before,
+.celulas.circulo::after,
+.borda.circulo .celulas:not(.circulo):not(.circulo):hover::after,
+.borda.circulo .celulas:not(.circulo):not(.circulo):hover::before {
+  content: "";
+  width: calc(100px * 0.9);
+  height: calc(100px * 0.9);
+  background: black;
+  position: absolute;
+  border-radius: 50%;
+}
+
+/* Estilização da mensagem da vitória */
+.mensagem-da-vitoria {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  flex-direction: column;
+}
+
+.btn-vitoria {
+  font-size: 2.5rem;
+  background-color: rgb(28, 90, 62);
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  margin-top: 18px;
+  color: white;
+}
+
+.btn-vitoria:hover {
+  color: rgb(28, 90, 62);
+  background-color: white;
+}
+
+.texto-vitoria {
+  color: white;
+  font-size: 5rem;
+}
+
+.aparecer-mensagem-vitoria {
+  display: flex;
+}
+
+h1 {
+  color: white;
+}
+
+@media only screen and (max-width: 720px) {
+  body {
+    font-size: 22px;
+  }
+  .celulas {
+    width: 80px;
+    height: 80px;
+  }
+  .alura-logo {
+    width: 50px;
+    top: 5px;
+    right: 5px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  body {
+    font-size: 18px;
+  }
+  .celulas {
+    width: 60px;
+    height: 60px;
+  }
+  .alura-logo {
+    width: 40px;
+    top: 2px;
+    right: 2px;
+  }
+}
